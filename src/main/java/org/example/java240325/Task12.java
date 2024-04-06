@@ -1,5 +1,4 @@
 package org.example.java240325;
-import java.util.Scanner;
 
 public class Task12 {
     //    Подсчитайте, сколько раз в массиве встречается строка, равная заданной.

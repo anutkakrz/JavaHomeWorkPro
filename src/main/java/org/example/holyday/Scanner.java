@@ -10,7 +10,7 @@ public class Scanner extends OfficeEquipment{
     int colorDepth;
     int maxPaperSize;
     String connectivity;
-    boolean isDuplexScanning;//
+    boolean isDuplexScanning;
     String scannerType;
 
     public Scanner(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational, int scanResolution, int scanSpeed, int colorDepth, int maxPaperSize, String connectivity, boolean isDuplexScanning, String scannerType) {

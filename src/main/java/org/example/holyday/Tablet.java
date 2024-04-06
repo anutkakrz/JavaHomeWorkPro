@@ -11,7 +11,7 @@ public class Tablet extends OfficeEquipment{
     int batteryLife;
     boolean isCellular;
     int cameraResolution;
-    String processorType;//
+    String processorType;
 
     public Tablet(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational, int screenSize, int storageSize, String operatingSystem, int batteryLife, boolean isCellular, int cameraResolution, String processorType) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);

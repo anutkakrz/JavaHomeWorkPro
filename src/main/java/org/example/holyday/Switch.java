@@ -9,7 +9,7 @@ public class Switch extends OfficeEquipment{
     int layer;
     String managementType;
     String powerOverEthernet;
-    String stackable;//
+    String stackable;
     String formFactor;
 
     public Switch(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational, int portCount, int speed, int layer, String managementType, String powerOverEthernet, String stackable, String formFactor) {

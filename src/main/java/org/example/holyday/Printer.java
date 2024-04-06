@@ -9,7 +9,7 @@ public class Printer extends OfficeEquipment {
     boolean isColor;
     int paperSize;
     String connectivity;
-    String dutyCycle;
+    String dutyCycle; //
 
     public Printer(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);

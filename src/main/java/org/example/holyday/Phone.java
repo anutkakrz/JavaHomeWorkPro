@@ -11,7 +11,7 @@ public class Phone extends OfficeEquipment{
     int batteryLife;
     boolean isSmart;
     int cameraResolution;
-    String processorType;
+    String processorType; //
 
     public Phone(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational, int screenSize, int storageSize, String operatingSystem, int batteryLife, boolean isSmart, int cameraResolution, String processorType) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);

@@ -11,7 +11,7 @@ public class Projector extends OfficeEquipment{
     int lampLife;
     int projectionSize;
     String connectivity;
-    boolean is3DReady;
+    boolean is3DReady; //
 
     public Projector(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational, int lumens, int resolution, int contrastRatio, int lampLife, int projectionSize, String connectivity, boolean is3DReady) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);

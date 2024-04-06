@@ -10,7 +10,7 @@ public class Laptop extends OfficeEquipment {
    int batteryLife;
    int screenSize;
    String operatingSystem;
-    boolean isTouchscreen; //
+    boolean isTouchscreen;
 
     public Laptop(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);

@@ -6,7 +6,7 @@ public class Monitor extends OfficeEquipment {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);
     }
     int screenSize;
-    int resolution; //разрешение //
+    int resolution; //разрешение
     String panelType;
     int refreshRate; //частота обновления
     boolean isCurved; //   Изогнутый

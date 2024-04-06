@@ -9,7 +9,7 @@ public class Router extends OfficeEquipment{
     String security;
     String ports;
     String range;
-    boolean isDualBand;//
+    boolean isDualBand;
     String connectivityType;
 
     public Router(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational, int speed, String band, String security, String ports, String range, boolean isDualBand, String connectivityType) {
