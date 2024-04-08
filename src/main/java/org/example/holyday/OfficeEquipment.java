@@ -35,7 +35,7 @@ public class OfficeEquipment {
     }
 
     public static OfficeEquipment[] getFullArray() {
-        Random random = new Random();
+        Random random = new Random();//
         Faker faker = new Faker();
         Class<? extends OfficeEquipment>[] classes = new Class[]{Laptop.class, Monitor.class,
                 Phone.class, Printer.class, Projector.class, Router.class, Scanner.class,
