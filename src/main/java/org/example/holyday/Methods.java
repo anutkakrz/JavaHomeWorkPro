@@ -22,7 +22,7 @@ public class Methods {
     public static void listByManufacturer(OfficeEquipment[] officeEquipment, String manufacturer) {
         List<String> list = new ArrayList<>();
         for (OfficeEquipment equipment : officeEquipment) {
-            if (equipment.manufacturer == manufacturer) {
+            if (equipment.manufacturer.equals(manufacturer) ) {
                 list.add(equipment.getClass().getSimpleName());
             }
         }
