@@ -1,15 +1,20 @@
 package org.example.holyday;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
+//@AllArgsConstructor
+@Setter
+@Getter
 public class Printer extends OfficeEquipment {
-
-    String printTechnology;
-    int printSpeed;
-    int maxResolution;
-    boolean isColor;
-    int paperSize;
-    String connectivity;
-    String dutyCycle; //
+    private String printTechnology;
+    private int printSpeed;
+    private int maxResolution;
+    private boolean isColor;
+    private int paperSize;
+    private String connectivity;
+    private String dutyCycle;
 
     public Printer(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);

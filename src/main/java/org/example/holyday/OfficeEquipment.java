@@ -1,9 +1,15 @@
 package org.example.holyday;
 
-
 import com.github.javafaker.Faker;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Random;
+
+@Getter
+@Setter
+@AllArgsConstructor
 
 public class OfficeEquipment {
     int id;
@@ -14,15 +20,6 @@ public class OfficeEquipment {
     int weight;
     boolean isOperational; // (исправность)
 
-    public OfficeEquipment(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational) {
-        this.id = id;
-        this.modelName = modelName;
-        this.manufacturer = manufacturer;
-        this.yearOfManufacture = yearOfManufacture;
-        this.price = price;
-        this.weight = weight;
-        this.isOperational = isOperational;
-    }
 
     @Override
     public String toString() {
