@@ -1,6 +1,8 @@
 package org.example.java240410;
 import org.example.java240410.Persons;
 
+import java.util.List;
+
 import static org.example.java240410.BrandCar.AUDI;
 import static org.example.java240410.Color.RED;
 import static org.example.java240410.Color.WHITE;
@@ -10,8 +12,8 @@ import static org.example.java240410.Currency.EUR;
 
 public class ToWork {
     public static void main(String[] args) {
-        Person[] persons = Persons.getArrayPersons(10);
-        Methods.printAllPersons(persons);
+       List<Person> persons = Persons.getListPersons(10);
+       Methods.printAllPersons(persons);
         Methods.printNameNoRedCar(persons);
         Methods.getAverageSalaryFromCountry(persons, UKRAINE);
         Methods.getPersonOrderWithCurrencyAndBalance(persons, EUR, 600000);

@@ -5,17 +5,21 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Arrays;
+import java.util.List;
 
 @AllArgsConstructor
- @Setter
- @Getter
+@Setter
+@Getter
+
 public class Person {
     private String name;
     private String LastName;
     private Address address;
     private int salary;
     private Car car;
-    private BankAccount[] bankAccounts;
+    private List<BankAccount> bankAccounts;
+
+
 
     @Override
     public String toString() {
@@ -25,7 +29,7 @@ public class Person {
                 ", address=" + address +
                 ", salary=" + salary +
                 ", car=" + car +
-                ", bankAccounts=" + Arrays.toString(bankAccounts) +
+                ", bankAccountList=" + bankAccounts+
                 '}';
     }
 }
