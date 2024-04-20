@@ -10,7 +10,7 @@ public class Matrix {
                          {24, 29, 44, 55, 66}};
         int num = 0;//
 //        System.out.println(numInMatrix(matrix, 100));
-        System.out.println(numInMatrix1(matrix, 24));
+        System.out.println(numInMatrix1(matrix, 15));
 
 
     }
