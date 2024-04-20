@@ -11,8 +11,6 @@ public class Matrix {
         int num = 0;//
 //        System.out.println(numInMatrix(matrix, 100));
         System.out.println(numInMatrix1(matrix, 24));
-
-
     }
     public static boolean numInMatrix (int[][] matrix, int num){
        boolean numberInMatrix = false;
