@@ -1,7 +1,4 @@
-package org.example.testCollectionT1_T3;
-
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+package org.example.testCollectionT1_T2;
 
 import java.util.List;
 

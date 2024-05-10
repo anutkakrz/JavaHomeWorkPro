@@ -1,4 +1,4 @@
-package org.example.testCollectionT1_T3;
+package org.example.testCollectionT1_T2;
 
 import java.util.Comparator;
 

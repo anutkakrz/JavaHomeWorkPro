@@ -1,8 +1,7 @@
-package org.example.testCollectionT1_T3;
+package org.example.testCollectionT1_T2;
 
 import lombok.*;
 
-import java.util.Comparator;
 import java.util.List;
 
 @EqualsAndHashCode
@@ -86,7 +85,7 @@ public class Student implements Comparable<Student>{
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 ", studentInCourses=" + studentInCourses.size() +
-                ", group=" + group+
+                ", group=" + group.getTitleGroup()+
                 '}';
     }
 }

@@ -1,10 +1,7 @@
-package org.example.testCollectionT1_T3;
-
-import com.github.javafaker.Faker;
+package org.example.testCollectionT1_T2;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Methods {
 
