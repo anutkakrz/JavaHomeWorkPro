@@ -8,7 +8,7 @@ public class Matrix {
                 {14, 19, 25, 26, 27},
                 {15, 21, 28, 33, 36},
                 {24, 29, 44, 55, 66}};
-        int num = 0;
+        int num = 0;//
         System.out.println(numInMatrix(matrix, 26));
 
     }
