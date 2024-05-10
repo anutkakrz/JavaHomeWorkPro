@@ -1,16 +1,21 @@
 package org.example.holyday;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Switch extends OfficeEquipment{
     public Switch(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);
     }
-    int portCount;
-    int speed;
-    int layer;
-    String managementType;
-    String powerOverEthernet;
-    String stackable;//
-    String formFactor;
+    private int portCount;
+    private int speed;
+    private int layer;
+    private String managementType;
+    private String powerOverEthernet;
+    private String stackable;
+    private String formFactor;
 
     public Switch(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational, int portCount, int speed, int layer, String managementType, String powerOverEthernet, String stackable, String formFactor) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);

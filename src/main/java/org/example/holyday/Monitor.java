@@ -1,17 +1,26 @@
 package org.example.holyday;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+//@AllArgsConstructor
 
 public class Monitor extends OfficeEquipment {
+
+    private int screenSize;
+    private int resolution; //разрешение
+    private String panelType;
+    private int refreshRate; //частота обновления
+    private boolean isCurved; //   Изогнутый
+    private String ports;
+    private boolean isHDR;
+
     public Monitor(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);
     }
-    int screenSize;
-    int resolution; //разрешение //
-    String panelType;
-    int refreshRate; //частота обновления
-    boolean isCurved; //   Изогнутый
-    String ports;
-    boolean isHDR;
 
     public Monitor(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational, int screenSize, int resolution, String panelType, int refreshRate, boolean isCurved, String ports, boolean isHDR) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);

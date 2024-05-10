@@ -1,9 +1,15 @@
 package org.example.holyday;
 
-
 import com.github.javafaker.Faker;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Random;
+
+@Getter
+@Setter
+@AllArgsConstructor
 
 public class OfficeEquipment {
     int id;
@@ -14,15 +20,6 @@ public class OfficeEquipment {
     int weight;
     boolean isOperational; // (исправность)
 
-    public OfficeEquipment(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational) {
-        this.id = id;
-        this.modelName = modelName;
-        this.manufacturer = manufacturer;
-        this.yearOfManufacture = yearOfManufacture;
-        this.price = price;
-        this.weight = weight;
-        this.isOperational = isOperational;
-    }
 
     @Override
     public String toString() {
@@ -38,9 +35,11 @@ public class OfficeEquipment {
     }
 
     public static OfficeEquipment[] getFullArray() {
-        Random random = new Random();
+        Random random = new Random();//
         Faker faker = new Faker();
-        Class<? extends OfficeEquipment>[] classes = new Class[]{Laptop.class, Monitor.class, Phone.class, Printer.class, Projector.class, Router.class, Scanner.class, Switch.class, Tablet.class};
+        Class<? extends OfficeEquipment>[] classes = new Class[]{Laptop.class, Monitor.class,
+                Phone.class, Printer.class, Projector.class, Router.class, Scanner.class,
+                Switch.class, Tablet.class};
         OfficeEquipment[] officeObjects = new OfficeEquipment[10];
 
         for (int i = 0; i < officeObjects.length; i++) {
@@ -50,7 +49,7 @@ public class OfficeEquipment {
             if (selectedClass == Laptop.class) {
                 int id = faker.number().randomDigit();
                 String modelName = faker.name().lastName();
-                String manufacturer = faker.company().name();
+                String manufacturer = "Jerde, O'Kon and Quigley" ;
                 int yearOfManufacture = faker.number().numberBetween(1900, 2023);
                 int price = faker.number().numberBetween(100, 10000);
                 int weight = faker.number().numberBetween(1, 10);
@@ -81,7 +80,7 @@ public class OfficeEquipment {
             } else if (selectedClass == Monitor.class) {
                 int id = faker.number().randomDigit();
                 String modelName = faker.name().lastName();
-                String manufacturer = faker.company().name();
+                String manufacturer =  "Jerde, O'Kon and Quigley" ;
                 int yearOfManufacture = faker.number().numberBetween(1900, 2023);
                 int price = faker.number().numberBetween(100, 10000);
                 int weight = faker.number().numberBetween(1, 10);
@@ -111,7 +110,7 @@ public class OfficeEquipment {
             } else if (selectedClass == Phone.class) {
                 int id = faker.number().randomDigit();
                 String modelName = faker.name().lastName();
-                String manufacturer = faker.company().name();
+                String manufacturer ="Hoeger-Pagac";
                 int yearOfManufacture = faker.number().numberBetween(1900, 2023);
                 int price = faker.number().numberBetween(100, 10000);
                 int weight = faker.number().numberBetween(1, 10);
@@ -141,7 +140,7 @@ public class OfficeEquipment {
             } else if (selectedClass == Printer.class) {
                 int id = faker.number().randomDigit();
                 String modelName = faker.name().lastName();
-                String manufacturer = faker.company().name();
+                String manufacturer ="Hoeger-Pagac";
                 int yearOfManufacture = faker.number().numberBetween(1900, 2023);
                 int price = faker.number().numberBetween(100, 10000);
                 int weight = faker.number().numberBetween(1, 10);
@@ -172,7 +171,7 @@ public class OfficeEquipment {
             } else if (selectedClass == Projector.class) {
                 int id = faker.number().randomDigit();
                 String modelName = faker.name().lastName();
-                String manufacturer = faker.company().name();
+                String manufacturer = "Hoeger-Pagac";
                 int yearOfManufacture = faker.number().numberBetween(1900, 2023);
                 int price = faker.number().numberBetween(100, 10000);
                 int weight = faker.number().numberBetween(1, 10);

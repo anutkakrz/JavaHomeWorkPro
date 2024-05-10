@@ -1,16 +1,23 @@
 package org.example.holyday;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+//@AllArgsConstructor
 public class Router extends OfficeEquipment{
     public Router(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);
     }
-    int speed;
-    String band;
-    String security;
-    String ports;
-    String range;
-    boolean isDualBand;//
-    String connectivityType;
+    private int speed;
+    private String band;
+    private String security;
+    private String ports;
+    private String range;
+    private boolean isDualBand;
+    private String connectivityType;
 
     public Router(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational, int speed, String band, String security, String ports, String range, boolean isDualBand, String connectivityType) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);

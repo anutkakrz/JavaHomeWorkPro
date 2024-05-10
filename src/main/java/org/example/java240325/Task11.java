@@ -1,7 +1,5 @@
 package org.example.java240325;
 
-import static java.lang.String.*;
-
 public class Task11 {
     //    Найдите самую длинную строку в массиве строк
     public static void main(String[] args) {

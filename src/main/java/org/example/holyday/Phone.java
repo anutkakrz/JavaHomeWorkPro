@@ -1,17 +1,24 @@
 package org.example.holyday;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+//@AllArgsConstructor
 
 public class Phone extends OfficeEquipment{
     public Phone(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);
     }
-    int screenSize;
-    int storageSize;
-    String operatingSystem;
-    int batteryLife;
-    boolean isSmart;
-    int cameraResolution;
-    String processorType;
+    private int screenSize;
+    private int storageSize;
+    private String operatingSystem;
+    private int batteryLife;
+    private boolean isSmart;
+    private int cameraResolution;
+    private String processorType;
 
     public Phone(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational, int screenSize, int storageSize, String operatingSystem, int batteryLife, boolean isSmart, int cameraResolution, String processorType) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);

@@ -1,17 +1,22 @@
 package org.example.holyday;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 
 public class Tablet extends OfficeEquipment{
     public Tablet(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);
     }
-    int screenSize;
-    int storageSize;
-    String operatingSystem;
-    int batteryLife;
-    boolean isCellular;
-    int cameraResolution;
-    String processorType;//
+    private int screenSize;
+    private int storageSize;
+    private String operatingSystem;
+    private int batteryLife;
+    private boolean isCellular;
+    private int cameraResolution;
+    private String processorType;
 
     public Tablet(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational, int screenSize, int storageSize, String operatingSystem, int batteryLife, boolean isCellular, int cameraResolution, String processorType) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);

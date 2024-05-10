@@ -1,16 +1,22 @@
 package org.example.holyday;
 
 
-public class Laptop extends OfficeEquipment {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+//@AllArgsConstructor
+@Getter
+@Setter
+class Laptop extends OfficeEquipment {
 
 
-   String processorType;
-   int ramSize;
-   int storageSize;
-   int batteryLife;
-   int screenSize;
-   String operatingSystem;
-    boolean isTouchscreen; //
+   private String processorType;
+   private int ramSize;
+   private int storageSize;
+   private int batteryLife;
+   private int screenSize;
+   private String operatingSystem;
+   private boolean isTouchscreen;
 
     public Laptop(int id, String modelName, String manufacturer, int yearOfManufacture, int price, int weight, boolean isOperational) {
         super(id, modelName, manufacturer, yearOfManufacture, price, weight, isOperational);
@@ -26,6 +32,7 @@ public class Laptop extends OfficeEquipment {
         this.operatingSystem = operatingSystem;
         this.isTouchscreen = isTouchscreen;
     }
+
 
     @Override
     public String toString() {
