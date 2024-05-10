@@ -7,6 +7,8 @@ public class HouseCollectionTasks_1 {
     // Задание 1: Вернуть список всех квартир во всех домах (List)
     public static List<Flat> getAllFlats(List<House> houses) {
         List<Flat> allFlats = new ArrayList<>();
+        for (House house : houses)
+            allFlats.addAll(house.flats);
 
         return allFlats;
     }
@@ -14,7 +16,13 @@ public class HouseCollectionTasks_1 {
     // Задание 2: Вернуть множество всех уникальных цветов, используемых в комнатах квартир (Set)
     public static Set<Color> getUniqueRoomColors(List<House> houses) {
         Set<Color> colors = new HashSet<>();
-
+        for (House house : houses) {
+            for (Flat flat : house.flats) {
+                for (Room room : flat.roomList) {
+                    colors.add(room.color);
+                }
+            }
+        }
         return colors;
     }
 
@@ -22,11 +30,12 @@ public class HouseCollectionTasks_1 {
     public static Map<Integer, Integer> getFlatsCountByFloor(House houses) {
         Map<Integer, Integer> floorMap = new HashMap<>();
 
+
         return floorMap;
     }
 
     // Задание 4: Используя очередь, вернуть список номеров квартир в порядке, в котором они появляются, начиная с первого подъезда (Queue)
-    public static List<Integer> getFlatNumbersInOrder(House houses) {
+    public static List<Integer> getFlatNumbersInOrder(House house) {
         Queue<Integer> queue = new LinkedList<>();
         List<Integer> orderedFlatNumbers = new ArrayList<>();
 
