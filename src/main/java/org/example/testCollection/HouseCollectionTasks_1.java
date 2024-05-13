@@ -45,15 +45,22 @@ public class HouseCollectionTasks_1 {
         Queue<Integer> queue = new LinkedList<>();
         List<Integer> orderedFlatNumbers = new ArrayList<>();
         for (Flat flat : house.flats) {
-            orderedFlatNumbers.add(flat.flatnumber);
+           queue.offer(flat.flatnumber);
+        } while (!queue.isEmpty()) {
+            orderedFlatNumbers.add(queue.poll());
         }
         return orderedFlatNumbers;
     }
 
     // Задание 5: Используя стек, вернуть список всех квартир в обратном порядке от последнего дома к первому (Stack)
-    public static List<Flat> getFlatsInReverseOrder(House houses) {
+    public static List<Flat> getFlatsInReverseOrder(House house) {
         Stack<Flat> stack = new Stack<>();
         List<Flat> reversedFlats = new ArrayList<>();
+        for (Flat flat : house.flats) {
+            stack.push(flat);
+        }while (!stack.isEmpty()){
+            reversedFlats.add(stack.pop());
+        }
 
         return reversedFlats;
     }
