@@ -27,10 +27,16 @@ public class HouseCollectionTasks_1 {
     }
 
     // Задание 3: Вернуть карту, ключами которой являются номера этажей, а значениями - количество квартир на этом этаже (Map)
-    public static Map<Integer, Integer> getFlatsCountByFloor(House houses) {
+    public static Map<Integer, Integer> getFlatsCountByFloor(House house) {
         Map<Integer, Integer> floorMap = new HashMap<>();
-
-
+        for (Flat flat : house.flats) {
+            int floor = flat.floor;
+            if (floorMap.containsKey(floor)) {
+                floorMap.put(floor,floorMap.get(floor)+1);
+            } else {
+                floorMap.put(floor,1);
+            }
+        }
         return floorMap;
     }
 
@@ -38,7 +44,9 @@ public class HouseCollectionTasks_1 {
     public static List<Integer> getFlatNumbersInOrder(House house) {
         Queue<Integer> queue = new LinkedList<>();
         List<Integer> orderedFlatNumbers = new ArrayList<>();
-
+        for (Flat flat : house.flats) {
+            orderedFlatNumbers.add(flat.flatnumber);
+        }
         return orderedFlatNumbers;
     }
 
@@ -51,12 +59,21 @@ public class HouseCollectionTasks_1 {
     }
     
     public static void main(String[] args) {
-        List<House> houses = HouseGenerator.generateHouses(777);
+        List<House> houses = HouseGenerator.generateHouses(2);
 
-        System.out.println("Все квартиры: " + getAllFlats(houses).size());
-        System.out.println("Уникальные цвета комнат: " + getUniqueRoomColors(houses).size());
-        System.out.println("Квартиры по этажам: " + getFlatsCountByFloor(houses.get(0)));
-        System.out.println("Номера квартир по порядку: " + getFlatNumbersInOrder(houses.get(0)));
-        System.out.println("Квартиры в обратном порядке: " + getFlatsInReverseOrder(houses.get(0)));
+        System.out.println("\nВсе квартиры: " + getAllFlats(houses));
+        System.out.println("\nУникальные цвета комнат: " + getUniqueRoomColors(houses).size());
+//        for (House house : houses) {
+//            for (Flat flat : house.flats) {
+//                for (Room room : flat.roomList) {
+//                    System.out.println("квартира № "+flat.flatnumber+" с "+flat.roomList.size()+" комнатами с цветами: "+room.color);
+//                }
+//            }
+//        }
+        System.out.println("\nКвартиры по этажам: " + getFlatsCountByFloor(houses.get(0)));
+
+        System.out.println("\n"+houses);
+        System.out.println("\nНомера квартир по порядку: " + getFlatNumbersInOrder(houses.get(0)));
+        System.out.println("\nКвартиры в обратном порядке: " + getFlatsInReverseOrder(houses.get(0)));
     }
 }

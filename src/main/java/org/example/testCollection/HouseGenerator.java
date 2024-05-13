@@ -11,11 +11,11 @@ public class HouseGenerator {
         List<House> houses = new ArrayList<>();
         for (int i = 0; i < numberOfHouses; i++) {
             House house = new House();
-            house.entrance = random.nextInt(10) + 1;
+            house.entrance = random.nextInt(6);
             house.hasElevator = random.nextBoolean();
 
             List<Flat> flats = new ArrayList<>();
-            int floors = random.nextInt(1,6);
+            int floors = random.nextInt(2,6);
             int flatsPerFloor = random.nextInt(2, 5);
             for (int floor = 0; floor < floors; floor++) {
                 for (int flatIndex = 0; flatIndex < flatsPerFloor; flatIndex++) {
@@ -31,8 +31,8 @@ public class HouseGenerator {
     private static Flat generateFlat(int floor) {
         Flat flat = new Flat();
         flat.floor = floor;
-        flat.flatnumber = random.nextInt(1000);
-        int roomsCount = random.nextInt(5) + 1;
+        flat.flatnumber = random.nextInt(300);
+        int roomsCount = random.nextInt(5);
         List<Room> rooms = new ArrayList<>();
         double totalSquare = 0;
 
@@ -77,7 +77,7 @@ public class HouseGenerator {
     }
 
     public static void main(String[] args) {
-        List<House> houses = generateHouses(777);
+        List<House> houses = generateHouses(7);
         System.out.println(houses.get(0).hasElevator);
     }
 }

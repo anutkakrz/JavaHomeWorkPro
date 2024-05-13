@@ -1,15 +1,25 @@
 package org.example.testCollection;
 
+import lombok.Getter;
 import lombok.ToString;
 
 import java.util.List;
-
+@Getter
 @ToString
 public class House {
 
     List<Flat> flats;
     int entrance;
     boolean hasElevator;
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "flats=" + flats.size() +
+                ", entrance=" + entrance +
+                ", hasElevator=" + hasElevator +
+                '}';
+    }
 }
 
 
@@ -19,7 +29,8 @@ class Flat {
     int flatnumber;
     int floor;
 
-    @Override
+
+        @Override
     public String toString() {
         return "Flat[" +
                 "ROOMS: " + roomList.size() +
