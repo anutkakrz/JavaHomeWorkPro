@@ -15,8 +15,8 @@ public class HouseGenerator {
             house.hasElevator = random.nextBoolean();
 
             List<Flat> flats = new ArrayList<>();
-            int floors = random.nextInt(2,6);
-            int flatsPerFloor = random.nextInt(2, 5);
+            int floors = random.nextInt(2,20);
+            int flatsPerFloor = random.nextInt(2, 6);
             for (int floor = 0; floor < floors; floor++) {
                 for (int flatIndex = 0; flatIndex < flatsPerFloor; flatIndex++) {
                     flats.add(generateFlat(floor));
