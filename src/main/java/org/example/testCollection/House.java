@@ -76,8 +76,10 @@ class Doorway {
 }
 
 @ToString
+
 enum Color {
     WHITE, BLACK, GREEN, YELLOW, RED, BLUE, PURPLE, BRAUN;
+
 }
 
 

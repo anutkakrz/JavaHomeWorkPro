@@ -70,6 +70,14 @@ public class MoreAdvancedHouseCollectionTasks {
     // Задание 5: Подсчитать суммарное количество комнат в квартирах, окрашенных в определенный цвет (Map)
     public static Map<Color, Integer> countRoomsByColor(List<House> houses) {
         Map<Color, Integer> roomColorCounts = new HashMap<>();
+        for (House house : houses) {
+            for (Flat flat : house.flats) {
+                for (Room room : flat.roomList) {
+                  roomColorCounts.put(room.color, roomColorCounts.getOrDefault(room.color, 0)+1);
+                }
+            }
+        }
+
 
         return roomColorCounts;
     }
