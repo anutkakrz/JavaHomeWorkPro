@@ -59,14 +59,20 @@ public class AdvancedHouseCollectionTasks {
 
     // Задание 4: Определить, все ли дома имеют лифт (List)
     public static boolean areAllHousesWithElevator(List<House> houses) {
-
+        for (House house : houses) {
+            if (!house.hasElevator) return false;
+        }
         return true;
     }
 
     // Задание 5: Подсчитать общее количество квартир, расположенных на первом этаже (List)
     public static int getTotalFirstFloorFlats(List<House> houses) {
         int count = 0;
-
+        for (House house : houses) {
+            for (Flat flat : house.flats) {
+               if (flat.floor == 0) count++;
+            }
+        }
         return count;
     }
 
@@ -77,5 +83,7 @@ public class AdvancedHouseCollectionTasks {
         System.out.println(getFlatsWithMoreRoomsThanAverage(houses));
         System.out.println(getFloorsWithElevator(houses));
         System.out.println(getTotalEntrancesInLargeHouses(houses));
+        System.out.println(areAllHousesWithElevator(houses));
+        System.out.println(getTotalFirstFloorFlats(houses));
     }
 }

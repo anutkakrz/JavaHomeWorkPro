@@ -1,5 +1,6 @@
 package org.example.testCollection;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,11 +9,35 @@ public class DetailedHouseCollectionTasks {
 
     // Задание 1: Вернуть список всех коробок, вес которых больше среднего веса всех коробок (List)
     public static List<Box> getBoxesHeavierThanAverage(List<House> houses) {
-
-        return null;
+        List<Box> boxes = new ArrayList<>();
+        int sumWeight = 0;
+        int countBox = 0;
+        for (House house : houses) {
+            for (Flat flat : house.flats) {
+                for (Room room : flat.roomList) {
+                    for (Box box : room.boxes) {
+                        sumWeight += box.weight;
+                        countBox++;
+                    }
+                }
+            }
+        }
+        for (House house : houses) {
+            for (Flat flat : house.flats) {
+                for (Room room : flat.roomList) {
+                    for (Box box : room.boxes) {
+                       if (box.weight> (double) sumWeight /countBox) {
+                           boxes.add(box);
+                       }
+                    }
+                }
+            }
+        }
+        return boxes;
     }
 
-    // Задание 2: Вернуть карту, где ключи — это цвета коробок, а значения — количество комнат, содержащих хотя бы одну коробку такого цвета (List, Map)
+    // Задание 2: Вернуть карту, где ключи — это цвета коробок, а значения — количество комнат,
+    // содержащих хотя бы одну коробку такого цвета (List, Map)
     public static Map<Color, Integer> getRoomCountByBoxColor(List<House> houses) {
         Map<Color, Integer> roomCountByColor = new HashMap<>();
 
@@ -42,7 +67,9 @@ public class DetailedHouseCollectionTasks {
     }
 
     public static void main(String[] args) {
-        List<House> houses = HouseGenerator.generateHouses(777);
+        List<House> houses = HouseGenerator.generateHouses(5);
+
+        System.out.println(houses);
 
         System.out.println("Коробки тяжелее среднего: " + getBoxesHeavierThanAverage(houses).size());
         System.out.println("Количество комнат по цветам коробок: " + getRoomCountByBoxColor(houses));
