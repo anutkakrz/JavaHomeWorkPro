@@ -14,17 +14,17 @@ public class Main {
     private static final Faker FAKER = new Faker();
 
     public static void main(String[] args) {
-        Set<Team<Pupil>> teamsPupils = Generator.generateTeams(25, 4, Pupil.class);
-        Set<Team<Teenager>> teamsTeenagers = Generator.generateTeams(25, 4, Teenager.class);
-        Set<Team<Adult>> teamsAdults = Generator.generateTeams(25, 4, Adult.class);
-
+        Set<Team<Pupil>> teamsPupils = Generator.generateTeams(10, 0, Pupil.class);
+//        Set<Team<Teenager>> teamsTeenagers = Generator.generateTeams(25, 4, Teenager.class);
+//        Set<Team<Adult>> teamsAdults = Generator.generateTeams(25, 4, Adult.class);
+//
         getPlays(teamsPupils);
-        getPlays(teamsTeenagers);
-        getPlays(teamsAdults);
+//        getPlays(teamsTeenagers);
+//        getPlays(teamsAdults);
 
         System.out.println(teamsPupils);
-        System.out.println(teamsTeenagers);
-        System.out.println(teamsAdults);
+//        System.out.println(teamsTeenagers);
+//        System.out.println(teamsAdults);
 
 
 

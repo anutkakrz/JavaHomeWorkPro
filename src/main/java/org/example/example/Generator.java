@@ -1,6 +1,8 @@
 package org.example.example;
 
 import com.github.javafaker.Faker;
+import org.example.example.Exception.ErrorMessages;
+import org.example.example.Exception.TeamCanNotBeEmpty;
 
 import java.util.*;
 
@@ -9,11 +11,22 @@ public class Generator {
     private static final Faker FAKER = new Faker();
     private static final Random RANDOM = new Random();
 
-    public static <T extends Participant> Set <Team<T>> generateTeams(int numberOfTeams, int participantsInTeam, Class<T> participantType) {
+    public static <T extends Participant> Set<Team<T>> generateTeams(int numberOfTeams, int participantsInTeam, Class<T> participantType) {
+        if (numberOfTeams == 0) {
+            throw new TeamCanNotBeEmpty(ErrorMessages.NUMBERS_TEAMS_CAN_NOT_BE_EMPTY);
+        }
+        if (participantsInTeam == 0) {
+            throw new TeamCanNotBeEmpty(ErrorMessages.TEAM_CAN_NOT_BE_EMPTY);
+        }
         Set<Team<T>> teams = new HashSet<>();
         for (int i = 0; i < numberOfTeams; i++) {
             Team<T> team = new Team<>(FAKER.team().name());
-            team.setList(generateParticipants(participantsInTeam,participantType));
+            try {
+                List<T> list = generateParticipants(participantsInTeam, participantType);
+                team.setList(list);
+            } catch (NullPointerException e) {
+                throw new TeamCanNotBeEmpty(ErrorMessages.PARTICIPANT_LIST_CAN_NOT_BE_EMPTY);
+            }
             teams.add(team);
         }
         return teams;
@@ -23,12 +36,12 @@ public class Generator {
         List<T> participants = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             T participant = null;
-            if(participantType.equals(Pupil.class)) {
-                participant = participantType.cast(new Pupil(FAKER.name().fullName(),RANDOM.nextInt(5,10)));
-            }else if(participantType.equals(Teenager.class)) {
-                participant = participantType.cast(new Teenager(FAKER.name().fullName(),RANDOM.nextInt(10,21)));
-            }else if(participantType.equals(Adult.class)) {
-                participant = participantType.cast(new Adult(FAKER.name().fullName(),RANDOM.nextInt(21,121)));
+            if (participantType.equals(Pupil.class)) {
+                participant = participantType.cast(new Pupil(FAKER.name().fullName(), RANDOM.nextInt(5, 10)));
+            } else if (participantType.equals(Teenager.class)) {
+                participant = participantType.cast(new Teenager(FAKER.name().fullName(), RANDOM.nextInt(10, 21)));
+            } else if (participantType.equals(Adult.class)) {
+                participant = participantType.cast(new Adult(FAKER.name().fullName(), RANDOM.nextInt(21, 121)));
             }
             participants.add(participant);
         }
@@ -41,7 +54,7 @@ public class Generator {
         for (int i = 0; i < teamList.size(); i++) {
             for (int j = countJ; j < teamList.size(); j++) {
                 int win = RANDOM.nextInt(3);
-                if (i==j)continue;
+                if (i == j) continue;
                 if (win == 0) {
                     teamList.get(i).setPoints(teamList.get(i).getPoints() + 0.5);
                     teamList.get(j).setPoints(teamList.get(j).getPoints() + 0.5);
@@ -62,13 +75,10 @@ public class Generator {
                     teamList.get(j).setWinCounter(teamList.get(j).getWinCounter() + 1);
                     teamList.get(i).setLosCounter(teamList.get(i).getLosCounter() + 1);
                 }
-                System.out.println(i);
-                System.out.println(j);
             }
             countJ = i + 1;
         }
     }
-
 
 
 //
