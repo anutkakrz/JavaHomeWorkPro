@@ -1,4 +1,4 @@
-package org.example.example.java2105;
+package org.example.java2105;
 
 import java.util.ArrayList;
 import java.util.Arrays;
