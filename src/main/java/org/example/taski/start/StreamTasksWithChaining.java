@@ -1,4 +1,4 @@
-package org.example.streamTaski.start;
+package org.example.taski.start;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -10,11 +10,11 @@ public class StreamTasksWithChaining {
     public static void main(String[] args) {
 //        List<Integer> list = Arrays.asList(1, 4, 6, 8, 7, 9, 3, 4, 2, 16, 22);
 //        System.out.println(filterSortLimit(list));
-        List<String> list = Arrays.asList("kallyy", "Boom", "daebaey", "billy1", "Body", "Vada", "Lada");
-//        System.out.println(filterSortReverseAndJoin(list));
+        List<String> list = Arrays.asList("kallyy", "Boom", "Aaebaey", "billy1", "Body", "vada", "Lada");
+        System.out.println(filterSortReverseAndJoin(list));
 //        System.out.println(filterDoubleSort(list));
 //        System.out.println(maxLengthGreaterThanThree(list));
-        System.out.println(findFirstLongStringSorted(list));
+//        System.out.println(findFirstLongStringSorted(list));
     }
 
     // 1. Отфильтровать четные числа, отсортировать и вернуть первые 3
