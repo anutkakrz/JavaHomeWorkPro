@@ -5,6 +5,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+
+
 //уровень 3
 public class TaskSTREAM {
     /**
@@ -91,6 +93,7 @@ public class TaskSTREAM {
     private static void m7() {
         List<Person> people = Arrays.asList(new Person("John", 25), new Person("Alice", 22), new Person("Bob", 30));
         List<String> names = people.stream()
+                .sorted((a,b)->a.getAge()- b.getAge())
                 .flatMap(el -> Stream.of(el.getName()))
                 .toList();
         System.out.println(names); // [Alice, John, Bob] = не сделала сортировку!!!!
@@ -104,17 +107,31 @@ public class TaskSTREAM {
                 .reduce(Integer::sum);
         System.out.println(sum); // 33 (3 + 5 + 6 + 9 + 10)
     }
+
+    //Задание 9:Получение списка слов, содержащих только уникальные символы, из списка строк
+    private static void m9() {
+        List<String> words = Arrays.asList("apple", "banana", "apricot", "cherry", "kiwi");
+        List<String> result = words.stream()
+                        .filter(el->el.chars().distinct().count()==el.length())
+                                .toList();
+
+        System.out.println(result); // [kiwi, grape]
+    }
 //
-//    //Задание 9:Получение списка слов, содержащих только уникальные символы, из списка строк
-//    private static void m9() {
-//        List<String> words =
-//        System.out.println(result); // [kiwi, grape]
+//    //Задание 10:Напишите метод, который принимает массив строк и подсчитывает частоту встречаемости каждого символа
+//    // во всех строках массива. Результат подсчета должен быть представлен в виде карты (Map), где ключами являются символы, а значениями
+//    // - количество их вхождений. Метод должен вывести каждый символ и его частоту на консоль.
+//    private static void m10(String[] strings) {
+//        Map<Character, Long> characterFrequency = Arrays.stream(strings)
+//
+//                .flatMapToInt(CharSequence::chars)
+//                .mapToObj(el->new ObjectChar(el,int count))
+//                .collect(Collectors.toMap(el->el, el->count ++));
+//
+//
+//
 //    }
 
-//    //Задание 10:
-//    private static void m10(String[] strings) {
-//        Map<Character, Long> characterFrequency =
-//    }
 
 
     public static void main(String[] args) {
@@ -126,7 +143,24 @@ public class TaskSTREAM {
         m6();
         m7();
         m8();
-//        m6();
+        m9();
 //        m10(new String[]{"mama", "papa"});
+    }
+}
+class ObjectChar {
+    int value;
+    int count;
+
+    public ObjectChar(int value, int count) {
+        this.value = value;
+        this.count = count;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public int getCount() {
+        return count;
     }
 }
