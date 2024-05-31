@@ -1,4 +1,4 @@
-package org.example._2024_04_17._2024_05_30;
+package org.example._2024_05_30;
 
 import lombok.Getter;
 
@@ -50,7 +50,8 @@ class StreamTasks {
         return people.stream()
                 .map(p -> p.age)
                 .distinct()
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()); // в ответе стоит что правильно использовать toSet - почему?
+        //если из-за того что он хранит только уникальные значения, то зачем мы тогда использовали distinct в 52 строке?
     }
 
     // 4. Найти средний возраст людей младше 18 лет.
@@ -177,8 +178,22 @@ class StreamTasks {
                         p -> p.city,
                         Collectors.mapping(
                                 p -> p.age,
-                                Collectors.maxBy(Integer::compareTo)
-                        )));
+                                Collectors.maxBy(Comparator.naturalOrder()
+                       ))));
+        // я спросила у чата в чем разница строк: Collectors.maxBy(Integer::compareTo) и Collectors.maxBy(Comparator.naturalOrder())
+        //Оба этих метода, Collectors.maxBy(Integer::compareTo) и Collectors.maxBy(Comparator.naturalOrder()),
+        // выполняют схожую задачу - они позволяют найти максимальное значение в стриме. Однако разница между
+        // ними заключается в способе сравнения элементов:
+        //
+        //Collectors.maxBy(Integer::compareTo): Этот метод использует метод сравнения compareTo у объектов типа Integer.
+        // Он сравнивает объекты Integer на основе их естественного порядка. Для чисел это означает сравнение значений.
+        // Это аналогично использованию Comparator.naturalOrder() для типа Integer.
+        //
+        //Collectors.maxBy(Comparator.naturalOrder()): Этот метод применяет Comparator.naturalOrder(), который создает компаратор,
+        // основанный на естественном порядке. Для чисел это также означает сравнение значений.
+        //
+        //Таким образом, в данном контексте эти два метода эквивалентны и вернут одинаковый результат для стрима объектов типа Integer.
+        // Однако использование Integer::compareTo может быть более явным, чем создание компаратора с помощью Comparator.naturalOrder().
     }
 
     // 22. Получить список людей, у которых зарплата больше 50000, отсортированных по убыванию зарплаты.
@@ -208,7 +223,7 @@ class StreamTasks {
         return people.stream()
                 .collect(Collectors.groupingBy(
                         p -> p.name.charAt(0),
-                        Collectors.averagingInt(p -> (int) p.salary)));
+                        Collectors.averagingDouble(p ->  p.salary)));
     }
 
     // 25. Найти человека с самой длинной электронной почтой в каждом городе.
