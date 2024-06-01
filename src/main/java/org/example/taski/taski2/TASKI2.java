@@ -3,9 +3,7 @@ package org.example.taski.taski2;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 //уровень 7
@@ -36,19 +34,21 @@ public class TASKI2 {
 //        System.out.println(uniqueChars(strings));
         System.out.println(longestString(strings));
     }
+
     //Напишите метод, который принимает список строк и возвращает
 // список уникальных слов, отсортированных в лексикографическом порядке.
     public static List<String> uniqueSortedWords(List<String> strings) {
         return strings.stream()
-                .flatMap(el-> Arrays.stream(el.split("\\W+")))
+                .flatMap(el -> Arrays.stream(el.split("\\W+")))
 //                .peek(System.out::println)
                 .distinct()
                 .sorted()
                 .collect(Collectors.toList());
     }
+
     //Напишите метод, который принимает список объектов и возвращает новый список, содержащий
     // только объекты, у которых определенное поле имеет заданное значение.
-    public static <T> List<T> filterByField(List<T> objects , String fieldName, Object value) throws NoSuchFieldException {
+    public static <T> List<T> filterByField(List<T> objects, String fieldName, Object value) throws NoSuchFieldException {
         return (List<T>) objects.stream()
                 .filter(el -> {
                     try {
@@ -60,34 +60,50 @@ public class TASKI2 {
                 }).collect(Collectors.toList());
 
     }
+
     //Напишите метод, который принимает список строк и возвращает список строк, содержащих
     // только уникальные символы (т.е. символы, которые не повторяются в строке).
     public static List<String> uniqueChars(List<String> strings) {
-       return Collections.singletonList(strings.stream()
-               .flatMap(el -> Arrays.stream(el.split("")))
-               .distinct()
-               .collect(Collectors.joining()));
+        return Collections.singletonList(strings.stream()
+                .flatMap(el -> Arrays.stream(el.split("")))
+                .distinct()
+                .collect(Collectors.joining()));
 
 
     }
+
     //Напишите метод, который принимает список строк и возвращает самую длинную строку в списке.
     public static String longestString(List<String> strings) {
         return strings.stream()
-                .sorted((el1,el2)->el2.length()-el1.length())
+                .sorted((el1, el2) -> el2.length() - el1.length())
                 .limit(1)
                 .collect(Collectors.joining());
 
     }
-//    //Напишите метод, который принимает список объектов и
-//    // возвращает среднее значение заданного числового поля всех объектов в списке.
-//    public static <T> double averageFieldValue(List<T> objects, String fieldName) throws NoSuchFieldException {
-//
-//    }
+
+    //Напишите метод, который принимает список объектов и
+    // возвращает среднее значение заданного числового поля всех объектов в списке.
+    public static <T> double averageFieldValue(List<T> objects, String fieldName) throws NoSuchFieldException {
+        Double avarage = objects.stream()
+                .map(el -> {
+                    try {
+                     return   el.getClass().getDeclaredField(fieldName).get(el);
+                    } catch (IllegalAccessException e) {
+                        throw new RuntimeException(e);
+                    } catch (NoSuchFieldException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }).mapToDouble(value -> (double) value)
+                .average()
+                .getAsDouble();
+        return avarage;
+    }
 }
 
 @AllArgsConstructor
 @Getter
- class Person {
+class Person {
     String name;
     int age;
 }
