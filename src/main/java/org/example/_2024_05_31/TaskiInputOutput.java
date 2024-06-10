@@ -50,6 +50,7 @@ public class TaskiInputOutput {
         getAllNames();
         writeToFile("10.txt", task10, false);
 //        writeToFile("9.txt", task9, false);
+        System.out.println(getStrings());
 
 
     }
@@ -205,7 +206,15 @@ private static String getMinRating() {
 
 //    Создайте сводку, включающую идентификатор стрима, название и рейтинг, и запишите ее в
 //    новый файл в формате "ID: Название - Рейтинг".
-// !!!!!!! не поняла условие задачи!!!!!!!
+
+//    Предлагаю просто создать String s = "ID: Название - Рейтинг"
+//    И сделать лист из этих стрингов
+private static List<String> getStrings(){
+        List<String> list =avarageRating.entrySet().stream()
+                .map(entry -> entry.getKey()+": "+entry.getValue())
+                .collect(Collectors.toList());
+        return list;
+}
 
 //    Соберите все названия стримов в одну длинную строку, разделяя их запятыми, и запишите эту строку в новый файл.
     private static String getAllNames(){
