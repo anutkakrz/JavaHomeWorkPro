@@ -13,7 +13,6 @@ public class WaitNotify {
         Thread s_Thread = new Thread(store);
         Thread c_Thread = new Thread(consumer);
 
-
         p_Thread.start();
         w_Thread.start();
         s_Thread.start();
