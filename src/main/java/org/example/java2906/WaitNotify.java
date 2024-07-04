@@ -43,7 +43,7 @@ class Market {
             }
 
             try {
-                Thread.sleep(234);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -51,6 +51,7 @@ class Market {
                 breadCounter++;
                 System.out.println("Producer произвел хлеб " + breadCounter);
             }
+            System.out.println("В хлебопекарне "+breadCounter+" буханок хлеба");
             turn = 1;
             LOCK.notifyAll();
         }
@@ -73,8 +74,9 @@ class Market {
             }
             for (int i = 0; i < 5 ; i++) {
                 breadCounter--;
-                System.out.println("WareHouse хлеб отвезли на склад " + breadCounter);
+                System.out.println("WareHouse погрузили хлеб, чтоб отвезти на склад " + breadCounter);
             }
+            System.out.println("Хлеб отвезли на склад, в хлебопекарне осталось:  " + breadCounter+ " буханок хлеба");
             turn = 2;
             LOCK.notifyAll();
         }
@@ -97,8 +99,9 @@ class Market {
             }
             for (int i = 0; i < 5; i++) {
                 breadCounter++;
-                System.out.println("Store хлеб доставили со склада в магазин " + breadCounter);
+                System.out.println("Хлеб погрузили в машину, чтоб доставить со склада в магазин " + breadCounter);
             }
+            System.out.println("Store хлеб доставили со склада в магазин, в магазине:  " + breadCounter+" буханок хлеба");
             turn = 3;
             LOCK.notifyAll();
         }
@@ -123,6 +126,7 @@ class Market {
                 breadCounter--;
                 System.out.println("Consumer покупатель купил хлеб " + breadCounter);
             }
+            System.out.println("В магазине осталось " + breadCounter+" буханок хлеба");
             turn = 0;
             LOCK.notifyAll();
         }
@@ -138,7 +142,7 @@ class Producer implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 3; i++) {
             market.produceBread();
         }
     }
@@ -153,7 +157,7 @@ class WareHouse implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i <3 ; i++) {
             market.takenToTheWarehouse();
         }
     }
@@ -168,7 +172,7 @@ class Store implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 3 ; i++) {
             market.storeDelivery();
         }
     }
@@ -183,7 +187,7 @@ class Consumer implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 3; i++) {
             market.soldBread();
         }
     }
