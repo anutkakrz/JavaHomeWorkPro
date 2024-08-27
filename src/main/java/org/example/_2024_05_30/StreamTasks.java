@@ -172,14 +172,16 @@ class StreamTasks {
                 .sum();
     }
     // 21. Группировать людей по городу и находить максимальный возраст в каждой группе.
-    public Map<String, Optional<Integer>> task21(List<Person> people) {
-        return people.stream()
-                .collect(Collectors.groupingBy(
-                        p -> p.city,
-                        Collectors.mapping(
-                                p -> p.age,
-                                Collectors.maxBy(Comparator.naturalOrder()
-                       ))));
+//    public Map<String, Optional<Integer>> task21(List<Person> people) {
+//        return people.stream()
+//                .collect(Collectors.groupingBy(
+//                        p -> p.city,
+//                        Collectors.mapping(
+//                                p -> p.age,
+//                                Collectors.maxBy(Comparator.naturalOrder()
+//                       ))));}
+
+
         // я спросила у чата в чем разница строк: Collectors.maxBy(Integer::compareTo) и Collectors.maxBy(Comparator.naturalOrder())
         //Оба этих метода, Collectors.maxBy(Integer::compareTo) и Collectors.maxBy(Comparator.naturalOrder()),
         // выполняют схожую задачу - они позволяют найти максимальное значение в стриме. Однако разница между
@@ -194,7 +196,7 @@ class StreamTasks {
         //
         //Таким образом, в данном контексте эти два метода эквивалентны и вернут одинаковый результат для стрима объектов типа Integer.
         // Однако использование Integer::compareTo может быть более явным, чем создание компаратора с помощью Comparator.naturalOrder().
-    }
+
 
     // 22. Получить список людей, у которых зарплата больше 50000, отсортированных по убыванию зарплаты.
     public List<Person> task22(List<Person> people) {
